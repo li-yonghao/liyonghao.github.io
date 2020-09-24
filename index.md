@@ -8,8 +8,6 @@
 
 **基本信息：** 李永豪&emsp;&emsp;&emsp;&emsp;&emsp;**现&ensp;居&ensp;地：** 吉林长春
 
-**手&ensp;机&ensp;号：** 178 xxxx xxxx&emsp;&emsp;&emsp;&emsp;&emsp;
-
 **邮&emsp;&emsp;箱：** congsw@foxmail.com
 
 **证&emsp;&emsp;书：** 英语四/六级、计算机二级&emsp;&emsp;&emsp;&emsp;&ensp;
