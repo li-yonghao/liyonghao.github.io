@@ -1,14 +1,14 @@
 ## 欢迎一下大家的光临，测试中。。。。
 ## 以下为测试内容
-<h1>应届生求职模板</h1>
+<h1>个人简历</h1>
 
 <div style="float:right">
     <img src="https://images.unsplash.com/photo-1600806513186-61431e16bf13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" width="150">
 </div>
 
-**基本信息：** 李永豪&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**现&ensp;在&ensp;地：** 吉林长春
+**基本信息：** 李永豪&emsp;&emsp;&emsp;&emsp;&emsp;**现&ensp;居&ensp;地：** 吉林长春
 
-**手&ensp;机&ensp;号：** 178 xxxx xxxx&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**邮&emsp;&emsp;箱：** congsw@foxmail.com
+**手&ensp;机&ensp;号：** 178 xxxx xxxx&emsp;&emsp;&emsp;&emsp;&emsp;**邮&emsp;&emsp;箱：** congsw@foxmail.com
 
 **证&emsp;&emsp;书：** 英语四/六级、计算机二级&emsp;&emsp;&emsp;&emsp;&ensp;**实习经验：** x年
 
