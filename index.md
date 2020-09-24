@@ -8,17 +8,19 @@
 
 **基本信息：** 李永豪&emsp;&emsp;&emsp;&emsp;&emsp;**现&ensp;居&ensp;地：** 吉林长春
 
-**手&ensp;机&ensp;号：** 178 xxxx xxxx&emsp;&emsp;&emsp;&emsp;&emsp;**邮&emsp;&emsp;箱：** congsw@foxmail.com
+**手&ensp;机&ensp;号：** 178 xxxx xxxx&emsp;&emsp;&emsp;&emsp;&emsp;
 
-**证&emsp;&emsp;书：** 英语四/六级、计算机二级&emsp;&emsp;&emsp;&emsp;&ensp;**实习经验：** x年
+**邮&emsp;&emsp;箱：** congsw@foxmail.com
 
-**GitHub：** https://github.com/congshengwu 
+**证&emsp;&emsp;书：** 英语四/六级、计算机二级&emsp;&emsp;&emsp;&emsp;&ensp;
 
-**CSDN：** &ensp;https://blog.csdn.net/c1024197824
+**实习经验：** x年
+
+**GitHub：** https://github.com/li-yonghao 
 
 <h1>求职意向</h1>
 
-**期望职位：** 安卓开发工程师&emsp;&emsp;&emsp;&emsp;**期望薪资：** 0k-1000k
+**期望职位：** 算法岗&emsp;&emsp;&emsp;&emsp;**期望薪资：** 0k-1000k
 
 <h1>教育背景</h1>
 
