@@ -1,10 +1,12 @@
-## 欢迎一下大家的光临，测试中。。。。
+## Affiliation  测试中。。。。
 ## 以下为测试内容
-<h1>个人简历</h1>
+<h1>Affiliation</h1>
 
 <div style="float:right">
     <img src="https://images.unsplash.com/photo-1600806513186-61431e16bf13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" width="150">
 </div>
+
+I am a PhD student of Department of Computer Science & Technology in Nanjing University and a member of LAMDA Group, which is lead by professor Zhi-Hua Zhou. My supervisor is Yu-Feng Li. Before that, I received my B.Sc. degree from Software College of Jilin University.
 
 **基本信息：** 李永豪&emsp;&emsp;&emsp;&emsp;&emsp;**现&ensp;居&ensp;地：** 吉林长春
 
