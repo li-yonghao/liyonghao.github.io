@@ -1,4 +1,4 @@
-<div align='center' ><font size='33'>醉翁亭记</font></div>
+<div align='center' ><font size='40'>醉翁亭记</font></div>
 
 <div align='center' ><font size='20'>【作者】欧阳修 【朝代】宋</font></div>
 
