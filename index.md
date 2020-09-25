@@ -12,8 +12,4 @@
 <img src = "https://images.unsplash.com/photo-1600806513186-61431e16bf13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" align = "right" width = "300">
 
 
-<div style="float:left">
-    <img src="https://images.unsplash.com/photo-1600806513186-61431e16bf13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" width="200">
-</div>
-
 
