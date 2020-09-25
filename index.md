@@ -1,4 +1,4 @@
-<img src = "https://images.unsplash.com/photo-1600806513186-61431e16bf13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" align = "right" width = "200">
+<img src = "https://images.unsplash.com/photo-1600806513186-61431e16bf13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" align = "right" width = "256">
 
 <div align='center' ><font size='4'>醉翁亭记</font></div>
 
