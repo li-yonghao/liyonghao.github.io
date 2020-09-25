@@ -10,6 +10,8 @@
 
 &ensp;&ensp;&ensp;&ensp;已而夕阳在山，人影散乱，太守归而宾客从也。树林阴翳，鸣声上下，游人去而禽鸟乐也。然而禽鸟知山林之乐，而不知人之乐；人知从太守游而乐，而不知太守之乐其乐也。醉能同其乐，醒能述以文者，太守也。太守谓谁？庐陵欧阳修也。
 ![](https://images.unsplash.com/photo-1600806513186-61431e16bf13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80)
+![](https://images.unsplash.com/photo-1600806513186-61431e16bf13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80)
+
 <div style="float:left">
     <img src="https://images.unsplash.com/photo-1600806513186-61431e16bf13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" width="200">
 </div>
