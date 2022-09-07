@@ -38,9 +38,9 @@ TEST THIS PAGE...
 
 <center>
     <div>
-        <img src="assets/Li_yonghao.jpg" style="float:right" width="120" height="160"/>
+        <img src="assets/Li_yonghao.jpg" align = "right" width="120" height="160"/>
 		<b><font size = 6.5>李永豪</font></b><br>
-		<span style="font-size:18px">&#x1F4DE;</span>(+86) 15515193170 | <span style="font-size:18px">&#x1F4E7;</span><a href="mailto:liyonghao2015@outlook.com">liyonghao2015@outlook.com</a> | 长春市<br>
+		<span style="font-size:18px">&#x1F4DE;</span>(+86) XXXXXXXXXXX | <span style="font-size:18px">&#x1F4E7;</span><a href="mailto:liyonghao2015@outlook.com">liyonghao2015@outlook.com</a> | 长春市<br>
         <span style="font-size:18px">&#x1F5A5;</span><a href="https://www.scholat.com/yonghao20">Blog</a> | <img src="assets/github.svg" width="18px"><a href="https://github.com/li-yonghao">Github</a> | <img src="assets/linkedin.svg" width="18px"><a href="https://www.linkedin.cn/incareer/in/%E6%B0%B8%E8%B1%AA-%E6%9D%8E-891534108">Linkedin</a><br>
         出生年月: 1992年12月  |  籍贯: 河南省安阳市  |  政治面貌: 群众  
 	</div>
