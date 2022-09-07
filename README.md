@@ -27,6 +27,15 @@ TEST THIS PAGE...
 
 \\
 
+
+<div align='center' ><font size='4'>醉翁亭记</font></div>
+
+<div align='center' ><font size='3'>【作者】欧阳修 【朝代】宋</font></div>
+
+<div style="float:right">
+    <img src="assets/Li_yonghao.jpg" align = "right" width="150">
+</div>
+
 <center>
     <div>
         <img src="assets/Li_yonghao.jpg" style="float:right" width="120" height="160"/>
