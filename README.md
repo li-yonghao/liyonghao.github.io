@@ -25,20 +25,10 @@ TEST THIS PAGE...
 
 &ensp;&ensp;&ensp;&ensp;已而夕阳在山，人影散乱，太守归而宾客从也。树林阴翳，鸣声上下，游人去而禽鸟乐也。然而禽鸟知山林之乐，而不知人之乐；人知从太守游而乐，而不知太守之乐其乐也。醉能同其乐，醒能述以文者，太守也。太守谓谁？庐陵欧阳修也。&ensp;&ensp;
 
-\\
-
-
-<div align='center' ><font size='4'>醉翁亭记</font></div>
-
-<div align='center' ><font size='3'>【作者】欧阳修 【朝代】宋</font></div>
-
-<div style="float:right">
-    <img src="assets/Li_yonghao.jpg" align = "right" width="150">
-</div>
 
 <center>
     <div>
-        <img src="assets/Li_yonghao.jpg" align = "right" width="120" height="160"/>
+        <img src="assets/Li_yonghao.jpg" align = "right" width="150" />
 		<b><font size = 6.5>李永豪</font></b><br>
 		<span style="font-size:18px">&#x1F4DE;</span>(+86) XXXXXXXXXXX | <span style="font-size:18px">&#x1F4E7;</span><a href="mailto:liyonghao2015@outlook.com">liyonghao2015@outlook.com</a> | 长春市<br>
         <span style="font-size:18px">&#x1F5A5;</span><a href="https://www.scholat.com/yonghao20">Blog</a> | <img src="assets/github.svg" width="18px"><a href="https://github.com/li-yonghao">Github</a> | <img src="assets/linkedin.svg" width="18px"><a href="https://www.linkedin.cn/incareer/in/%E6%B0%B8%E8%B1%AA-%E6%9D%8E-891534108">Linkedin</a><br>
