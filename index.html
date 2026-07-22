@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yonghao Li · 李永豪</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<style>
+:root {
+  --bg: #f8f9fb;
+  --card: #ffffff;
+  --text: #1e293b;
+  --text2: #475569;
+  --text3: #64748b;
+  --blue: #3b82f6;
+  --blue2: #2563eb;
+  --blue3: #1d4ed8;
+  --blue-l: #eff6ff;
+  --green: #10b981;
+  --green-l: #ecfdf5;
+  --amber: #f59e0b;
+  --amber-l: #fffbeb;
+  --rose: #f43f5e;
+  --rose-l: #fff1f2;
+  --purple: #8b5cf6;
+  --purple-l: #f5f3ff;
+  --cyan: #06b6d4;
+  --cyan-l: #ecfeff;
+  --slate: #f1f5f9;
+  --border: #e2e8f0;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgba(0,0,0,.04);
+  --shadow-card: 0 0 0 1px rgba(0,0,0,.03), 0 2px 4px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.04);
+  --shadow-hover: 0 0 0 1px rgba(0,0,0,.04), 0 4px 8px rgba(0,0,0,.06), 0 12px 32px rgba(0,0,0,.06);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* HERO */
+.hero{
+  position:relative;
+  background:url('images/swufe-zhonglou.jpg') center/cover no-repeat;
+  background-position:center 40%;
+  padding:88px 24px 72px;
+  overflow:hidden;
+}
+/* overlay: 左侧加深以保证文字可读，右侧保持通透让钟楼清晰呈现 */
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(95deg,rgba(0,35,85,.82) 0%,rgba(0,55,120,.65) 38%,rgba(20,80,140,.25) 72%,rgba(40,100,160,.05) 100%);
+  z-index:0;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(200,180,130,.08) 0%,transparent 70%);
+  bottom:-80px;right:-60px;
+  z-index:0;
+}
+.hero-particles{
+  position:absolute;inset:0;overflow:hidden;z-index:1;
+}
+.hero-particle{
+  position:absolute;
+  width:2px;height:2px;
+  border-radius:50%;
+  background:rgba(200,210,230,.35);
+  animation:float 6s ease-in-out infinite;
+}
+.hero-particle:nth-child(1){left:10%;top:20%;animation-delay:0s}
+.hero-particle:nth-child(2){left:25%;top:60%;animation-delay:1.2s}
+.hero-particle:nth-child(3){left:50%;top:30%;animation-delay:2.4s}
+.hero-particle:nth-child(4){left:70%;top:45%;animation-delay:.6s}
+.hero-particle:nth-child(5){left:85%;top:25%;animation-delay:1.8s}
+.hero-particle:nth-child(6){left:15%;top:75%;animation-delay:3s}
+.hero-particle:nth-child(7){left:40%;top:80%;animation-delay:2.2s}
+.hero-particle:nth-child(8){left:60%;top:15%;animation-delay:.8s}
+@keyframes float{0%,100%{transform:translateY(0) scale(1);opacity:.3}50%{transform:translateY(-18px) scale(1.5);opacity:.6}}
+.hero-inner{max-width:980px;margin:0 auto;position:relative;z-index:2}
+.hero-top{display:flex;align-items:center;gap:28px;margin-bottom:20px}
+.hero-avatar{
+  width:110px;height:110px;border-radius:50%;
+  background:linear-gradient(135deg,#3b82f6,#1d4ed8);
+  display:flex;align-items:center;justify-content:center;
+  font-size:38px;font-weight:700;color:#fff;
+  flex-shrink:0;
+  box-shadow:0 0 0 4px rgba(255,255,255,.12),0 8px 32px rgba(59,130,246,.3);
+}
+.hero-text h1{font-size:2.3rem;font-weight:700;color:#f1f5f9;letter-spacing:-.02em;margin-bottom:4px}
+.hero-text .zh-name{font-weight:400;font-size:1.1rem;color:#94a3b8;margin-left:8px}
+.hero-text .role{font-size:1rem;color:#cbd5e1;font-weight:400;margin-bottom:2px}
+.hero-text .affil{font-size:0.88rem;color:#94a3b8}
+.hero-links{display:flex;flex-wrap:wrap;gap:10px}
+.hero-link{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 16px;border-radius:20px;
+  font-size:0.84rem;font-weight:500;
+  background:rgba(255,255,255,.08);
+  color:#cbd5e1;text-decoration:none;
+  border:1px solid rgba(255,255,255,.1);
+  transition:all .2s;
+}
+.hero-link:hover{background:rgba(255,255,255,.16);color:#f1f5f9;border-color:rgba(255,255,255,.2)}
+.hero-link svg{width:15px;height:15px;flex-shrink:0}
+
+/* LAYOUT */
+.main{max-width:1040px;margin:0 auto;padding:0 24px 64px;display:grid;grid-template-columns:320px 1fr;gap:24px;position:relative;top:-36px}
+
+.side,.body{display:flex;flex-direction:column;gap:18px}
+
+/* CARDS */
+.card{
+  background:var(--card);border-radius:var(--radius);
+  padding:22px 24px;box-shadow:var(--shadow-card);
+  transition:box-shadow .3s;
+}
+.card:hover{box-shadow:var(--shadow-hover)}
+.card-head{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.card-head-icon{
+  width:34px;height:34px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.card-head h3{font-size:.95rem;font-weight:650;color:var(--text);letter-spacing:.005em}
+
+/* SIDEBAR ITEMS */
+.info-row{display:flex;align-items:flex-start;gap:10px;padding:7px 0;font-size:.875rem;color:var(--text2)}
+.info-row .dot{width:18px;text-align:center;flex-shrink:0;font-size:.8rem;padding-top:1px}
+.info-row a{color:var(--blue2);text-decoration:none;word-break:break-all}
+.info-row a:hover{text-decoration:underline}
+
+.edu-block{padding:8px 0}
+.edu-block .deg{font-weight:650;font-size:.88rem;color:var(--text)}
+.edu-block .sch{font-size:.82rem;color:var(--text3);margin-top:2px}
+
+.res-item{font-size:.875rem;color:var(--text2);padding:6px 0 6px 18px;position:relative;border-left:2px solid transparent}
+.res-item::before{
+  content:'';position:absolute;
+  left:-5px;top:13px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--blue);
+}
+.res-goal{font-size:.86rem;color:var(--text2);line-height:1.6;margin-bottom:8px;padding:10px 12px;background:var(--blue-l);border-radius:var(--radius-sm)}
+
+.svc-block{margin-bottom:12px}
+.svc-block:last-child{margin-bottom:0}
+.svc-block .svc-label{font-size:.78rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.svc-tags{display:flex;flex-wrap:wrap;gap:5px}
+.svc-tag{font-size:.76rem;padding:3px 10px;border-radius:14px;font-weight:500;background:var(--slate);color:var(--text2)}
+
+/* MAIN CONTENT */
+
+/* NEWS SCROLL */
+.news-scroll{
+  max-height:280px;overflow-y:auto;padding-right:6px;
+  scrollbar-width:thin;scrollbar-color:#cbd5e1 transparent;
+}
+.news-scroll::-webkit-scrollbar{width:4px}
+.news-scroll::-webkit-scrollbar-track{background:transparent}
+.news-scroll::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
+.news-scroll::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+.news-scroll.expanded{max-height:none}
+/* PATENT SCROLL */
+.patent-scroll{
+  max-height:240px;overflow-y:auto;padding-right:6px;
+  scrollbar-width:thin;scrollbar-color:#cbd5e1 transparent;
+}
+.patent-scroll::-webkit-scrollbar{width:4px}
+.patent-scroll::-webkit-scrollbar-track{background:transparent}
+.patent-scroll::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
+.patent-scroll::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+.patent-scroll.expanded{max-height:none}
+.news-controls{
+  display:flex;align-items:center;gap:10px;
+  margin-top:14px;padding-top:12px;
+  border-top:1px dashed var(--border);
+}
+.news-item{padding:8px 0 8px 14px;font-size:.88rem;color:var(--text2);border-left:2px solid var(--border);transition:border-color .2s}
+.news-item:hover{border-left-color:var(--blue)}
+.news-item .ndate{font-weight:600;color:var(--text3);font-size:.78rem;margin-right:8px}
+.news-more{
+  display:inline-flex;align-items:center;gap:5px;
+  color:var(--blue2);font-size:.82rem;font-weight:500;
+  cursor:pointer;border:none;background:var(--blue-l);
+  padding:6px 14px;border-radius:8px;transition:all .2s
+}
+.news-more:hover{background:var(--blue);color:#fff}
+.news-more svg{width:14px;height:14px;transition:transform .3s}
+.news-more.open svg{transform:rotate(180deg)}
+.news-count{font-size:.78rem;color:var(--text3)}
+
+/* PUB */
+.pub-item{
+  padding:10px 0;border-bottom:1px solid var(--border);
+  transition:padding .2s;
+}
+.pub-item:last-child{border-bottom:none}
+.pub-authors{font-size:.87rem;color:var(--text2)}
+.pub-authors .self{font-weight:700;color:var(--blue3)}
+.pub-title{font-weight:620;font-size:.88rem;color:var(--text);margin:2px 0}
+.pub-venue{font-size:.8rem;color:var(--text3)}
+.pub-badge{
+  display:inline-block;font-size:.7rem;font-weight:650;padding:2px 8px;border-radius:5px;margin-left:5px;vertical-align:1px
+}
+.b-ccfa{background:var(--blue-l);color:var(--blue3)}
+.b-cas{background:var(--amber-l);color:#b45309}
+.b-esi{background:var(--green-l);color:#15803d}
+.b-best{background:var(--rose-l);color:#be123c}
+.pub-extra{display:none}
+.pub-toggle{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:12px;color:var(--blue2);font-size:.84rem;font-weight:500;
+  cursor:pointer;border:none;background:none;padding:8px 14px;
+  border-radius:8px;transition:all .2s
+}
+.pub-toggle:hover{background:var(--blue-l)}
+.pub-toggle svg{width:14px;height:14px;transition:transform .3s}
+.pub-toggle.open svg{transform:rotate(180deg)}
+
+/* AWARDS */
+.awd-item{display:flex;gap:8px;padding:6px 0;font-size:.87rem;color:var(--text2)}
+.awd-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:9px}
+.awd-date{color:var(--text3);font-weight:500;font-size:.8rem;white-space:nowrap;min-width:56px}
+
+/* STUDENT LABELS */
+.stu-tag{font-size:.68rem;font-weight:600;margin-left:2px}
+.stu-ug{color:var(--blue2)}
+.stu-ms{color:#059669}
+.stu-phd{color:var(--purple)}
+
+/* STUDENTS */
+.stu-group{margin-bottom:14px}
+.stu-group:last-child{margin-bottom:0}
+.stu-group h4{font-size:.88rem;font-weight:650;margin-bottom:8px;color:var(--text)}
+.stu-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px 16px}
+.stu-grid span{font-size:.84rem;color:var(--text2)}
+
+/* RECRUIT */
+.recruit-card{
+  background:linear-gradient(135deg,#eff6ff 0%,#f5f3ff 50%,#fdf2f8 100%);
+  border:1px solid #c7d2fe;
+}
+.recruit-item{margin-bottom:12px;font-size:.88rem;color:var(--text2);line-height:1.7}
+.recruit-item:last-child{margin-bottom:0}
+.recruit-label{display:block;font-weight:650;color:var(--text);margin-bottom:2px;font-size:.82rem}
+
+
+/* PROJECTS */
+.proj-item{padding:8px 0;font-size:.87rem;color:var(--text2)}
+.proj-item .pdate{font-weight:600;color:var(--text3);font-size:.78rem}
+.proj-item strong{color:var(--text)}
+
+/* FOOTER */
+.foot{text-align:center;padding:32px 24px;color:var(--text3);font-size:.82rem;border-top:1px solid var(--border);background:var(--card)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .main{grid-template-columns:1fr;top:-24px;padding:0 16px 40px}
+  .hero-top{flex-direction:column;text-align:center}
+  .hero{padding:60px 20px 44px}
+  .hero-text h1{font-size:1.7rem}
+  .hero-links{justify-content:center}
+  .stu-grid{grid-template-columns:1fr}
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.anim-up{animation:fadeUp .5s ease-out both}
+.anim-up:nth-child(1){animation-delay:.05s}
+.anim-up:nth-child(2){animation-delay:.1s}
+.anim-up:nth-child(3){animation-delay:.15s}
+.anim-up:nth-child(4){animation-delay:.2s}
+.anim-up:nth-child(5){animation-delay:.25s}
+.anim-up:nth-child(6){animation-delay:.3s}
+.anim-up:nth-child(7){animation-delay:.35s}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+<div class="hero-particles">
+  <div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div>
+  <div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div>
+</div>
+<div class="hero-inner">
+  <div class="hero-top">
+    <div class="hero-avatar"><img src="images/liyonghao.png" alt="Yonghao Li" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+    <div class="hero-text">
+      <h1>Yonghao Li<span class="zh-name">李永豪</span></h1>
+      <div class="role">Assistant Professor / 青年教师</div>
+      <div class="affil"><a href="https://it.swufe.edu.cn/" target="_blank" style="color:#94a3b8;text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">School of Computing and Artificial Intelligence</a>, <a href="https://www.swufe.edu.cn/" target="_blank" style="color:#94a3b8;text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">SWUFE</a><br><a href="https://www.swufe.edu.cn/" target="_blank" style="color:#94a3b8;text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">西南财经大学</a> · <a href="https://it.swufe.edu.cn/" target="_blank" style="color:#94a3b8;text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">计算机与人工智能学院</a></div>
+    </div>
+  </div>
+  <div class="hero-links">
+    <a class="hero-link" href="mailto:liyonghao@swufe.edu.cn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a2 2 0 0 1-2.06 0L2 7"/></svg> Email</a>
+    <a class="hero-link" href="https://it.swufe.edu.cn/info/1122/17058.htm" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> 学院主页</a>
+    <a class="hero-link" href="https://scholar.google.com/citations?user=6vb2aWkAAAAJ&hl" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10.5V5L12 1 2 5v5.5c0 5.5 4 10 10 11 6-1 10-5.5 10-11z"/><path d="M8 14c0 2.5 4 2.5 4 0"/><circle cx="12" cy="11" r="1.5"/></svg> Google Scholar</a>
+    <a class="hero-link" href="https://orcid.org/0000-0001-5653-4907" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg> ORCID</a>
+    <a class="hero-link" href="https://www.scholat.com/yonghao20" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 3v18"/></svg> 学者网 Scholat</a>
+  </div>
+</div>
+</header>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- ========== SIDEBAR ========== -->
+<aside class="side">
+
+<!-- Education -->
+<div class="card anim-up">
+  <div class="card-head">
+    <div class="card-head-icon" style="background:var(--blue-l)">🎓</div>
+    <h3>教育背景 / Education</h3>
+  </div>
+  <div class="edu-block">
+    <div class="deg">工学博士 (Ph.D.)</div>
+    <div class="sch"><a href="https://www.jlu.edu.cn/" target="_blank" style="color:var(--text2)">吉林大学</a> · <a href="https://ccst.jlu.edu.cn/" target="_blank" style="color:var(--text2)">计算机科学与技术学院</a>, 2023</div>
+    <div class="sch" style="font-size:.78rem;color:var(--text3);margin-top:4px">导师: <a href="https://ccst.jlu.edu.cn/info/1367/19276.htm" target="_blank" style="color:var(--text2)">胡亮教授</a> &amp; <a href="https://ccst.jlu.edu.cn/info/1028/19117.htm" target="_blank" style="color:var(--text2)">高万夫教授</a></div>
+  </div>
+  <div style="margin-top:10px;font-size:.82rem;color:var(--text3);line-height:1.6">
+    <a href="https://ccci.swufe.edu.cn/" target="_blank" style="color:var(--text2)">认知计算与群智协同创新团队 (CCCI)</a> 成员<br>团队负责人: <a href="https://it.swufe.edu.cn/info/1119/2300.htm" target="_blank" style="color:var(--text2)">杨新教授</a>
+  </div>
+</div>
+
+<!-- Research -->
+<div class="card anim-up">
+  <div class="card-head">
+    <div class="card-head-icon" style="background:var(--purple-l)">🔬</div>
+    <h3>研究方向 / Research</h3>
+  </div>
+  <div class="res-goal"><strong>长期目标：</strong>为复杂、高维及分布式的数据环境开发鲁棒且可信赖的机器学习方法。</div>
+  <div class="res-item">高维数据特征选择 — 多视图/多模态学习、特征选择、（偏）多标签学习</div>
+  <div class="res-item">因果关系挖掘 — 因果推断、因果发现、信息理论策略</div>
+  <div class="res-item">隐私保护下的协同训练 — 联邦学习、隐私保护机器学习</div>
+  <div class="res-item">持续学习与防遗忘 — 持续学习、终身学习、增量学习</div>
+</div>
+
+<!-- Contact -->
+<div class="card anim-up">
+  <div class="card-head">
+    <div class="card-head-icon" style="background:var(--cyan-l)">📍</div>
+    <h3>联系方式 / Contact</h3>
+  </div>
+  <div class="info-row"><span class="dot">📧</span><a href="mailto:liyonghao@swufe.edu.cn">liyonghao@swufe.edu.cn</a></div>
+</div>
+
+<!-- Services -->
+<div class="card anim-up">
+  <div class="card-head">
+    <div class="card-head-icon" style="background:var(--green-l)">✍️</div>
+    <h3>学术服务 / Services</h3>
+  </div>
+  <div class="svc-block">
+    <div class="svc-label">会议程序委员 / Conference PC</div>
+    <div class="svc-tags">
+      <span class="svc-tag">CVPR</span><span class="svc-tag">ECCV</span><span class="svc-tag">AAAI</span><span class="svc-tag">ACM MM</span><span class="svc-tag">IJCAI</span><span class="svc-tag">ECAI</span><span class="svc-tag">NeurIPS</span>
+    </div>
+  </div>
+  <div class="svc-block">
+    <div class="svc-label">期刊审稿 / Journal Reviewer</div>
+    <div class="svc-tags">
+      <span class="svc-tag">IEEE TKDE</span><span class="svc-tag">TKDD</span><span class="svc-tag">TNNLS</span><span class="svc-tag">TCYB</span><span class="svc-tag">TMM</span><span class="svc-tag">TCSVT</span><span class="svc-tag">TSMC</span>
+      <span class="svc-tag">TFS</span><span class="svc-tag">TETCI</span><span class="svc-tag">TCE</span><span class="svc-tag">IEEE/CAA JAS</span><span class="svc-tag">INFFUS</span>
+      <span class="svc-tag">PR</span><span class="svc-tag">NN</span><span class="svc-tag">IP&amp;M</span><span class="svc-tag">KBS</span><span class="svc-tag">EAAI</span><span class="svc-tag">ESWA</span>
+      <span class="svc-tag">FSS</span><span class="svc-tag">ASOC</span><span class="svc-tag">Neurocomputing</span><span class="svc-tag">INS</span><span class="svc-tag">自动化学报</span>
+    </div>
+  </div>
+</div>
+
+</aside>
+
+<!-- ========== MAIN CONTENT ========== -->
+<main class="body">
+
+<!-- News -->
+<div class="card anim-up">
+  <div class="card-head">
+    <div class="card-head-icon" style="background:var(--amber-l)">📰</div>
+    <h3>最新动态 / News</h3>
+  </div>
+  <div class="news-scroll" id="newsScroll">
+    <div class="news-item"><span class="ndate">2026.07</span>指导本科生何心怡和刘潞瀚等发表论文《Determinacy-Driven Multi-Label Feature Selection via Representative Label Promotion》（Knowledge-based Systems (KBS)，中科院1区TOP，财大A类） <span class="pub-badge b-cas">中科院1区TOP</span></div>
+    <div class="news-item"><span class="ndate">2026.07</span>与喻皓博士等人合作发表论文《Robust Personalized Federated Continual Learning via Explainable Multi-Granularity Prompt》（IEEE Trans. on Pattern Analysis and Machine Intelligence (TPAMI)，CCF-A类期刊，财大A+类） <span class="pub-badge b-ccfa">CCF-A</span><span class="pub-badge b-best">财大A+</span></div>
+    <div class="news-item"><span class="ndate">2026.07</span>指导本科生谢天翊、张译匀申请的专利《基于互补标签空间的多标签特征选择引导去噪方法》获国家知识产权局授权</div>
+    <div class="news-item"><span class="ndate">2026.06</span>担任第九届数据存储与数据工程国际会议（DSDE 2026）本地组织秘书</div>
+    <div class="news-item"><span class="ndate">2026.05</span>指导2025级本科生方子若、王立栋等学生的《面向模态缺失场景的医学图像（CT-MRI）生成与融合算法研究》科研项目获<strong>大学生创新训练计划国家级立项</strong></div>
+    <div class="news-item"><span class="ndate">2026.05</span>与潘超凡博士等人合作发表论文《Regime-Adaptive Continual Learning for Portfolio Management》（SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)，CCF-A类会议，财大A类） <span class="pub-badge b-ccfa">CCF-A</span></div>
+    <div class="news-item"><span class="ndate">2026.05</span>合作指导陈子安、王鑫宇、罗雁名、桂黄鑫等同学分别获2026年光华创新创业大赛暨中国国际大学生创新大赛校内选拔赛金奖、银奖、银奖、铜奖</div>
+    <div class="news-item"><span class="ndate">2026.05</span>合作指导硕士生李婷婷等发表论文《Beyond Homophily: Spectrum-Based Graph Pre-training and Cluster-Augmented Prompt Tuning》（International Joint Conference on Artificial Intelligence (IJCAI)，财大A类） <span class="pub-badge b-ccfa">CCF-A</span></div>
+    <div class="news-item"><span class="ndate">2026.04</span>指导本科生刘潞瀚和何心怡等发表论文《Multi-Label Feature Selection under Coverage Imbalance and Feature Redundancy》（IEEE Trans. on Knowledge and Data Engineering (TKDE)，CCF-A类期刊，财大A类） <span class="pub-badge b-ccfa">CCF-A</span></div>
+    <div class="news-item"><span class="ndate">2026.04</span>合作指导硕士生陈嘉明等发表论文《Graph-fusion guided data reconstruction for multi-view multi-label feature selection》（Pattern Recognition，中科院1区TOP，财大A类） <span class="pub-badge b-cas">中科院1区TOP</span></div>
+    <div class="news-item"><span class="ndate">2026.03</span>担任第五届人工智能与机器学习前沿国际会议（FAIML 2026）《多粒度认知机器学习：理论，方法与应用》专题主席</div>
+    <div class="news-item"><span class="ndate">2026.03</span>指导硕士生王杨扬等发表论文《Lifelong Multi-View Clustering with Anchor-Prototype Collaboration》（Pattern Recognition，中科院1区TOP，财大A类） <span class="pub-badge b-cas">中科院1区TOP</span></div>
+    <div class="news-item"><span class="ndate">2026.02</span>指导本科生刘亚辉等发表论文《Multi-Label Feature Selection Considering Candidate Space Internal Information》（Pattern Recognition，中科院1区TOP，财大A类） <span class="pub-badge b-cas">中科院1区TOP</span></div>
+    <div class="news-item"><span class="ndate">2026.02</span>荣获<strong>中国人工智能学会吴文俊人工智能科技进步二等奖</strong></div>
+    <div class="news-item"><span class="ndate">2026.01</span>荣获<strong>西南财经大学研究生教学成果奖一等奖</strong></div>
+    <div class="news-item"><span class="ndate">2025.12</span>担任第六届大数据经济与信息化管理学术会议（BDEIM 2025）本地组织主席</div>
+    <div class="news-item"><span class="ndate">2025.11</span>指导李响、黄小欧、游皓然等学生获2025年"华为杯"中国研究生数学建模竞赛二等奖（排名：660/14790）</div>
+    <div class="news-item"><span class="ndate">2025.11</span>《联邦持续特征学习关键技术研究》获得<strong>中央高校基本科研业务费青年教师成长项目</strong>支持</div>
+    <div class="news-item"><span class="ndate">2025.11</span>当选为<strong>中国中文信息学会大模型与生成专业委员会</strong>委员</div>
+    <div class="news-item"><span class="ndate">2025.10</span>指导硕士生李响等发表论文《Negative Label-Aware and Correlation-Enhanced Multi-Label Feature Selection》（Knowledge-Based Systems，中科院1区TOP，财大A类） <span class="pub-badge b-cas">中科院1区TOP</span></div>
+    <div class="news-item"><span class="ndate">2025.09</span>《基于复杂数据驱动的联邦持续特征选择研究》获得<strong>符号计算与知识工程教育部重点实验室</strong>第一批项目支持</div>
+    <div class="news-item"><span class="ndate">2025.09</span>"Multi-label feature selection with high-sparse personalized and low-redundancy shared common features"论文入选<strong>ESI高被引</strong> <span class="pub-badge b-esi">ESI Highly Cited</span></div>
+    <div class="news-item"><span class="ndate">2025.08</span>当选为<strong>中国人工智能学会粒计算与知识发现专业委员会</strong>委员</div>
+    <div class="news-item"><span class="ndate">2025.06</span>"Exploring multi-label feature selection via feature and label information supplementation" is accepted by EAAI</div>
+    <div class="news-item"><span class="ndate">2025.05</span>指导谢天翊等学生的科研项目获<strong>大学生创新训练计划项目</strong>立项支持</div>
+    <div class="news-item"><span class="ndate">2025.04</span>被邀请担任<strong>教育部学位与研究生教育发展中心评审专家</strong></div>
+    <div class="news-item"><span class="ndate">2025.04</span>"Multi-granularity Knowledge Transfer for Continual Reinforcement Learning" is accepted by IJCAI <span class="pub-badge b-ccfa">CCF-A</span></div>
+    <div class="news-item"><span class="ndate">2025.04</span>"MI-MCF: A Mutual Information Based Multi-Label Causal Feature Selection" is accepted by IEEE TNNLS <span class="pub-badge b-cas">中科院1区TOP</span></div>
+    <div class="news-item"><span class="ndate">2024.11</span>"Fusion-enhanced multi-label feature selection with sparse supplementation" is accepted by Information Fusion <span class="pub-badge b-cas">中科院1区TOP</span></div>
+  </div>
+  <div class="news-controls">
+    <button class="news-more" id="newsToggle" onclick="toggleNews()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      展开全部动态
+    </button>
+    <span class="news-count" id="newsCount">共 29 条</span>
+  </div>
+</div>
+
+<!-- Publications -->
+<div class="card anim-up">
+  <div class="card-head">
+    <div class="card-head-icon" style="background:var(--rose-l)">📄</div>
+    <h3>代表性论文 / Selected Publications</h3>
+  </div>
+  <div class="news-scroll" id="pubScroll">
+  <!-- 2026 -->
+  <div class="pub-item">
+    <div class="pub-authors">Luhan Liu<span class="stu-tag stu-ug">本科生</span>, Xinyi He<span class="stu-tag stu-ug">本科生</span>, Hanlin Pan<span class="stu-tag stu-phd">博士生</span>, <span class="self">Yonghao Li*</span>, Wanfu Gao, Jie Wen, Weiping Ding</div>
+    <div class="pub-title">Multi-Label Feature Selection under Coverage Imbalance and Feature Redundancy</div>
+    <div class="pub-venue">IEEE Trans. on Knowledge and Data Engineering (TKDE), 2026 <span class="pub-badge b-ccfa">CCF-A</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors">Tingting Li<span class="stu-tag stu-ms">硕士生</span>, <span class="self">Yonghao Li</span>, Xiangkun Wang<span class="stu-tag stu-phd">博士生</span>, Sixiang Chen<span class="stu-tag stu-ms">硕士生</span>, Boyang Fan<span class="stu-tag stu-ms">硕士生</span>, Lingfei Ren, Hao Yu<span class="stu-tag stu-phd">博士生</span>, Xin Yang</div>
+    <div class="pub-title">Beyond Homophily: Spectrum-Based Graph Pre-training and Cluster-Augmented Prompt Tuning</div>
+    <div class="pub-venue">IJCAI, 2026 <span class="pub-badge b-ccfa">CCF-A</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors">Chaofan Pan<span class="stu-tag stu-phd">博士生</span>, Lingfei Ren, Linbo Xiong<span class="stu-tag stu-ms">硕士生</span>, <span class="self">Yonghao Li</span>, Wei Wei, Xin Yang</div>
+    <div class="pub-title">Regime-Adaptive Continual Learning for Portfolio Management</div>
+    <div class="pub-venue">KDD, 2026 <span class="pub-badge b-ccfa">CCF-A</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors">Jiaming Chen<span class="stu-tag stu-ms">硕士生</span>, Ping Zhang, <span class="self">Yonghao Li</span>, Wanfu Gao</div>
+    <div class="pub-title">Graph-fusion guided data reconstruction for multi-view multi-label feature selection</div>
+    <div class="pub-venue">Pattern Recognition, 2026 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors">Yangyang Wang<span class="stu-tag stu-ms">硕士生</span>, <span class="self">Yonghao Li</span>, Xuemei Cao, Hao Yu<span class="stu-tag stu-phd">博士生</span>, Jiafen Liu, Xin Yang</div>
+    <div class="pub-title">Lifelong multi-view clustering with anchor-prototype collaboration</div>
+    <div class="pub-venue">Pattern Recognition, 2026 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors">Yahui Liu<span class="stu-tag stu-ug">本科生</span>, Yuzhu Pang<span class="stu-tag stu-ms">硕士生</span>, Yujun Han<span class="stu-tag stu-ug">本科生</span>, <span class="self">Yonghao Li*</span>, Wanfu Gao</div>
+    <div class="pub-title">Multi-label feature selection considering candidate space internal information</div>
+    <div class="pub-venue">Pattern Recognition, 2026 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <!-- 2025 -->
+  <div class="pub-item">
+    <div class="pub-authors">Xiang Li<span class="stu-tag stu-ms">硕士生</span>, Huimin Fu, Xiaoou Huang<span class="stu-tag stu-ms">硕士生</span>, Tianyi Xie<span class="stu-tag stu-ug">本科生</span>, Lingfei Ren, Wanfu Gao, <span class="self">Yonghao Li*</span>, Xin Yang</div>
+    <div class="pub-title">Negative Label-Aware and Correlation-Enhanced Multi-Label Feature Selection</div>
+    <div class="pub-venue">Knowledge-Based Systems, 2025 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors">Suqi Zhang, <span class="self">Yonghao Li</span>, Ping Zhang, Wanfu Gao</div>
+    <div class="pub-title">Exploring multi-label feature selection via feature and label information supplementation</div>
+    <div class="pub-venue">Engineering Applications of Artificial Intelligence, 2025 <span class="pub-badge b-cas">中科院1区TOP</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors"><span class="self">Yonghao Li</span>, Xiangkun Wang<span class="stu-tag stu-ms">硕士生</span>, Xin Yang, Wanfu Gao, Weiping Ding, Tianrui Li</div>
+    <div class="pub-title">Fusion-enhanced multi-label feature selection with sparse supplementation</div>
+    <div class="pub-venue">Information Fusion, 2025 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors">Lin Ma<span class="stu-tag stu-phd">博士生</span>, Liang Hu, <span class="self">Yonghao Li</span>, Weiping Ding, Wanfu Gao</div>
+    <div class="pub-title">MI-MCF: A Mutual Information-Based Multilabel Causal Feature Selection</div>
+    <div class="pub-venue">IEEE Trans. on Neural Networks and Learning Systems, 2025 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors"><span class="self">Yonghao Li</span>, Liang Hu, Wanfu Gao</div>
+    <div class="pub-title">Multi-label feature selection via robust flexible sparse regularization</div>
+    <div class="pub-venue">Pattern Recognition, 2023 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors"><span class="self">Yonghao Li</span>, Liang Hu, Wanfu Gao</div>
+    <div class="pub-title">Robust sparse and low-redundant multi-label feature selection with dynamic local and global structure preservation</div>
+    <div class="pub-venue">Pattern Recognition, 2023 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors"><span class="self">Yonghao Li</span>, Liang Hu, Wanfu Gao</div>
+    <div class="pub-title">Label correlations variation for robust multi-label feature selection</div>
+    <div class="pub-venue">Information Sciences, 2022 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors"><span class="self">Yonghao Li</span>, Liang Hu, Wanfu Gao</div>
+    <div class="pub-title">Multi-label feature selection with high-sparse personalized and low-redundancy shared common features</div>
+    <div class="pub-venue">Information Processing &amp; Management, 2024 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大B类</span><span class="pub-badge b-esi">ESI高被引</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors">Liang Hu, <span class="self">Yonghao Li</span>, Wanfu Gao, Ping Zhang, Juncheng Hu</div>
+    <div class="pub-title">Multi-label feature selection with shared common mode</div>
+    <div class="pub-venue">Pattern Recognition, 2020 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors"><span class="self">Yonghao Li</span>, Juncheng Hu, Wanfu Gao</div>
+    <div class="pub-title">Robust multi-label feature selection with shared label enhancement</div>
+    <div class="pub-venue">Knowledge and Information Systems, 2022 <span class="pub-badge b-ccfa">CCF-B</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors">Wanfu Gao, <span class="self">Yonghao Li</span>, Liang Hu</div>
+    <div class="pub-title">Multilabel Feature Selection with Constrained Latent Structure Shared Term</div>
+    <div class="pub-venue">IEEE Trans. on Neural Networks and Learning Systems, 2023 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors">Liang Hu, Lingbo Gao, <span class="self">Yonghao Li</span>, Ping Zhang, Wanfu Gao</div>
+    <div class="pub-title">Feature-specific mutual information variation for multi-label feature selection</div>
+    <div class="pub-venue">Information Sciences, 2022 <span class="pub-badge b-cas">中科院1区TOP</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors"><span class="self">李永豪</span>, 胡亮, 高万夫</div>
+    <div class="pub-title">基于稀疏系数矩阵重构的多标记特征选择</div>
+    <div class="pub-venue">计算机学报, 2022 <span class="pub-badge b-ccfa">CCF-A中文</span><span class="pub-badge b-cas">财大A类</span></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-authors"><span class="self">李永豪</span>, 胡亮, 高万夫</div>
+    <div class="pub-title">基于动态图拉普拉斯的多标记特征选择方法</div>
+    <div class="pub-venue">通信学报, 2020 <span class="pub-badge b-ccfa">CCF-B中文</span></div>
+  </div>
+  </div>
+  <div class="news-controls">
+    <button class="news-more" id="pubToggle" onclick="togglePubs()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      展开全部论文
+    </button>
+    <span class="news-count" id="pubCount">共 20 篇</span>
+  </div>
+</div>
+
+<!-- Projects -->
+<div class="card anim-up">
+  <div class="card-head">
+    <div class="card-head-icon" style="background:var(--cyan-l)">🏗️</div>
+    <h3>科研项目 / Grants &amp; Projects</h3>
+  </div>
+  <div class="news-scroll" id="projScroll">
+  <div style="margin-bottom:14px">
+    <h4 style="font-size:.84rem;font-weight:650;color:var(--text);margin-bottom:8px">🔷 主持项目</h4>
+    <div class="proj-item"><span class="pdate">2026.01–12</span>&nbsp; 联邦持续特征学习关键技术研究 — <strong>中央高校基本科研业务费 青年教师成长项目</strong> (JBK202511004)</div>
+    <div class="proj-item"><span class="pdate">2025.01–12</span>&nbsp; 联邦持续学习机制下的特征选择关键技术研究 — <strong>四川省自然科学基金青年基金项目</strong> (2025ZNSF1497)</div>
+    <div class="proj-item"><span class="pdate">2025.01–12</span>&nbsp; 基于复杂数据驱动的联邦持续特征选择研究 — <strong>符号计算与知识工程教育部重点实验室项目</strong> (93K172025K12)</div>
+  </div>
+  <div style="margin-bottom:14px">
+    <h4 style="font-size:.84rem;font-weight:650;color:var(--text);margin-bottom:8px">🔶 参研项目</h4>
+    <div class="proj-item"><span class="pdate">2021.01–23.12</span>&nbsp; 基于信息论的嵌入式多标签特征选择体系的研究 — 吉林省自然科学基金 (YDZJ202101ZYTS009)</div>
+    <div class="proj-item"><span class="pdate">2020.12–22.12</span>&nbsp; 基于信息论的多标签特征选择体系研究 — 教育部符号计算与知识工程重点实验室项目 (93K172020K36)</div>
+    <div class="proj-item"><span class="pdate">2019.05–21.05</span>&nbsp; 基于信息论的特征选择技术在分子筛材料定向合成上的研究 — 博士后创新人才支持计划 (BX20190137)</div>
+    <div class="proj-item"><span class="pdate">2017.12–21.12</span>&nbsp; 地球系统模式公共软件平台研发-集成耦合系统研制与公共软件平台应用示范 — 国家重点研发计划全球变化及应对专项 (2017YFA0604500)</div>
+    <div class="proj-item"><span class="pdate">2017.12–21.12</span>&nbsp; 远程诊疗专项 — 吉林省省校共建计划专项 (SXGJSF2017-4)</div>
+    <div class="proj-item"><span class="pdate">2018.12–20.12</span>&nbsp; 面向云存储和大数据环境的加密访问控制系统 — 吉林省重点科技研发项目 (20180201103GX)</div>
+  </div>
+  <div>
+    <h4 style="font-size:.84rem;font-weight:650;color:var(--text);margin-bottom:8px">🎓 指导学生科研项目</h4>
+    <div class="proj-item"><span class="pdate">2026.05</span>&nbsp; 方子若、王立栋等（2025级本科生） — 《面向模态缺失场景的医学图像（CT-MRI）生成与融合算法研究》获<strong>国家级大学生创新训练计划</strong>立项</div>
+    <div class="proj-item"><span class="pdate">2025.05</span>&nbsp; 谢天翊等（2023级本科生） — 科研项目获<strong>大学生创新训练计划项目</strong>立项支持</div>
+  </div>
+  </div>
+  <div class="news-controls">
+    <button class="news-more" id="projToggle" onclick="toggleProjects()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      展开全部项目
+    </button>
+    <span class="news-count" id="projCount">共 11 项</span>
+  </div>
+</div>
+
+<!-- Patent -->
+<div class="card anim-up">
+  <div class="card-head">
+    <div class="card-head-icon" style="background:var(--purple-l)">💡</div>
+    <h3>发明专利 / Patents</h3>
+  </div>
+  <div class="patent-scroll" id="patentScroll">
+    <div class="proj-item"><span class="pdate">CN202511590317.X</span>&nbsp; 付慧敏, 李响, <strong>李永豪</strong>, 戴凌婧, 贾书恒, 杨新, 曹雪梅, 罗珺方, 李艳花, 欧阳小草, 任灵飞, 周亚晶 — 一种双通道标签引导的多标签特征选择方法及系统 (2026.02)</div>
+    <div class="proj-item"><span class="pdate">CN202511139010.8</span>&nbsp; 杨新, 曹雪梅, <strong>李永豪</strong>, 李子杰, 魏兵军, 李艳花, 王杨扬, 赵家浩, 李婷婷 — 一种适用于信用风险评估的持续自适应降维方法及系统 (2025.08)</div>
+    <div class="proj-item"><span class="pdate">CN202310569454.X</span>&nbsp; 高万夫, 潘涵林, 郝娉婷, <strong>李永豪</strong> — 一种基于稀疏学习耦合互信息的多标签特征选择方法 (2026.01)</div>
+    <div class="proj-item"><span class="pdate">CN202310879609.X</span>&nbsp; 高万夫, 郝娉婷, 潘涵林, <strong>李永豪</strong>, 胡亮 — 基于图一致性的标签生成方法及在多标签特征选择的应用 (2025.11)</div>
+    <div class="proj-item"><span class="pdate">CN202411434704.X</span>&nbsp; 杨新, 吴美君, 农雅轩, 曹雪梅, <strong>李永豪</strong>, 寇纲 — 基于持续学习与知识库回放策略的异常交易检测方法 (2024.12)</div>
+    <div class="proj-item"><span class="pdate">CN202511132116.5</span>&nbsp; 杨新, 王杨扬, 曹雪梅, 王向坤, <strong>李永豪</strong>, 梁吴扬, 张桀, 魏兵军, 李婷婷 — 一种基于数据多模态融合的金融市场异常交易检测方法 (2025.08)</div>
+    <div class="proj-item"><span class="pdate">CN202410504595.8</span>&nbsp; 高万夫, 韩庆奇, 韩庆强, 马琳, 潘涵林, 郝聘婷, <strong>李永豪</strong>, 任震嵩 — 基于标签置信度的部分多标签特征选择方法 (2024.04)</div>
+    <div class="proj-item"><span class="pdate">CN202311273222.6</span>&nbsp; 高万夫, 高珺, <strong>李永豪</strong>, 郝聘婷 — 一种利用因果机制灵活探索稀疏多标签特征选择的方法 (2023.09)</div>
+  </div>
+  <div class="news-controls">
+    <button class="news-more" id="patentToggle" onclick="togglePatents()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      展开全部专利
+    </button>
+    <span class="news-count" id="patentCount">共 8 项</span>
+  </div>
+</div>
+
+<!-- Awards -->
+<div class="card anim-up">
+  <div class="card-head">
+    <div class="card-head-icon" style="background:var(--amber-l)">🏆</div>
+    <h3>获奖荣誉 / Honors &amp; Awards</h3>
+  </div>
+  <div class="news-scroll" id="awdScroll">
+  <h4 style="font-size:.84rem;font-weight:650;color:var(--text);margin-bottom:8px">🔷 科研教学荣誉</h4>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--blue)"></span><span class="awd-date">2026.02</span>中国人工智能学会吴文俊人工智能科技进步二等奖</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--blue)"></span><span class="awd-date">2026.01</span>西南财经大学研究生教学成果奖一等奖</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--green)"></span><span class="awd-date">2026.05</span>指导学生获光华创新创业大赛暨中国国际大学生创新大赛校内选拔赛金奖1项、银奖2项、铜奖1项</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--green)"></span><span class="awd-date">2025.11</span>指导"华为杯"中国研究生数学建模竞赛全国二等奖（排名660/14790）</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--purple)"></span><span class="awd-date">2025.08</span>当选中国人工智能学会粒计算与知识发现专业委员会 委员</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--purple)"></span><span class="awd-date">2025.11</span>当选中国中文信息学会大模型与生成专业委员会 委员</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--purple)"></span><span class="awd-date">2025.04</span>受邀担任教育部学位与研究生教育发展中心评审专家</div>
+  <h4 style="font-size:.84rem;font-weight:650;color:var(--text);margin:14px 0 8px">🔶 求学期间荣誉</h4>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--amber)"></span>吉林省自然科学二等奖</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--amber)"></span>博士研究生国家奖学金</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--amber)"></span>中国研究生数学建模竞赛二等奖</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--amber)"></span>吉林大学一等研究生优秀奖学金（2次）</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--amber)"></span>吉林大学"优秀研究生"荣誉称号（2次）</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--amber)"></span>吉林银行王湘浩助学金（2次）</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--amber)"></span>研究生学业奖学金（3次）</div>
+  <div class="awd-item"><span class="awd-dot" style="background:var(--amber)"></span>研究生学术业绩奖学金（2次）</div>
+  </div>
+  <div class="news-controls">
+    <button class="news-more" id="awdToggle" onclick="toggleAwards()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      展开全部荣誉
+    </button>
+    <span class="news-count" id="awdCount">共 15 项</span>
+  </div>
+</div>
+
+<!-- Students -->
+<div class="card anim-up">
+  <div class="card-head">
+    <div class="card-head-icon" style="background:var(--green-l)">👥</div>
+    <h3>指导学生 / Students</h3>
+  </div>
+  <div class="stu-group">
+    <h4>🎓 硕士研究生（指导/协助指导）</h4>
+    <div class="stu-grid">
+      <span>王杨扬 (2023级 · 就业: 中国电气装备集团财务公司)</span>
+      <span>邓小钰 (2024级 · 在读)</span>
+      <span>李响 (2024级 · <a href="https://lixiang3270.github.io/" target="_blank" style="color:var(--blue2)">主页</a> · 在读)</span>
+      <span>黄小欧 (2025级 · <a href="https://xiaoouhuang507-ux.github.io" target="_blank" style="color:var(--blue2)">主页</a> · 在读)</span>
+      <span>邹宇东 (2025级 · 在读)</span>
+      <span>宋朝阳 (2025级 · 吉林大学在读)</span>
+      <span>庞宇竹 (2025级 · 吉林大学在读)</span>
+      <span>王亚楠 (2025级 · 吉林大学在读)</span>
+      <span>于涵 (2026级 · 吉林大学在读)</span>
+      <span>陈嘉佳 (2026级 · 在读)</span>
+    </div>
+  </div>
+  <div class="stu-group">
+    <h4>📚 本科生（指导/协助指导）</h4>
+    <div class="stu-grid">
+      <span>刘亚辉 (2022级 · 保研: 中国科学院自动化研究所)</span>
+      <span>吴佳蔓 (2022级 · 保研: 中国人民大学)</span>
+      <span>何心怡 (2022级 · 保研: 南京大学)</span>
+      <span>刘潞瀚 (2022级 · 保研: 北京航空航天大学)</span>
+      <span>郑筱彤 (2022级 · 保研: 大连理工大学)</span>
+      <span>林光皓 (2022级 · 毕业: 香港大学)</span>
+      <span>彭诚 (2023级 · 吉林大学在读)</span>
+      <span>何炜明 (2023级 · 吉林大学在读)</span>
+      <span>李相诚 (2023级 · 吉林大学在读)</span>
+      <span>谢天翊 (2023级 · 在读)</span>
+      <span>黄聪 (2024级 · 在读)</span>
+      <span>樊白玉 (2024级 · 在读)</span>
+      <span>谢若枫 (2024级 · 在读)</span>
+      <span>张译匀 (2024级 · 在读)</span>
+      <span>赵艳茹 (2025级 · 在读)</span>
+      <span>方子若 (2025级 · 在读)</span>
+    </div>
+  </div>
+</div>
+
+<!-- Recruitment -->
+<div class="card recruit-card anim-up">
+  <div class="card-head">
+    <div class="card-head-icon" style="background:rgba(59,130,246,.15)">📢</div>
+    <h3>招生 / Recruitment</h3>
+  </div>
+  <div class="recruit-item"><div class="recruit-label">🔬 研究方向</div>特征工程、多视图/多模态学习、因果推断、联邦持续学习等人工智能与数据挖掘领域。</div>
+  <div class="recruit-item"><div class="recruit-label">💻 要求</div>有较好编程基础，感兴趣的同学可将<strong>个人简历</strong>发送至邮箱 <a href="mailto:liyonghao@swufe.edu.cn" style="color:var(--blue3);font-weight:600">liyonghao@swufe.edu.cn</a></div>
+  <div class="recruit-item"><div class="recruit-label">🤝 合作关系</div>与清华大学、中国科学院大学、中国科学技术大学、南京大学、吉林大学、大连理工大学、美国亚利桑那州立大学、英国杜伦大学等高校有学术交流。</div>
+  <div class="recruit-item"><div class="recruit-label">🌱 课题组氛围</div>合作融洽，不压力不push。不开大组会，每周五提交一次个人学习进度汇报文档（篇幅格式不限，节假日、考试、生病或心情不好时可暂停提交），适时进行小组交流，主要起监督和避免方向走偏的作用。</div>
+</div>
+
+</main>
+</div>
+
+<footer class="foot">
+  © 2026 Yonghao Li &nbsp;·&nbsp; School of Computing and Artificial Intelligence, SWUFE &nbsp;·&nbsp; 西南财经大学计算机与人工智能学院
+  <div style="margin-top:10px">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=li-yonghao.github-page" alt="visitors" style="vertical-align:middle">
+  </div>
+</footer>
+
+<script>
+function togglePubs(){
+  var s=document.getElementById('pubScroll');
+  var b=document.getElementById('pubToggle');
+  if(!s||!b)return;
+  if(s.classList.contains('expanded')){
+    s.classList.remove('expanded');
+    b.classList.remove('open');
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg> 展开全部论文';
+    s.scrollTop=0;
+  }else{
+    s.classList.add('expanded');
+    b.classList.add('open');
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg> 收起论文';
+  }
+}
+function toggleNews(){
+  var s=document.getElementById('newsScroll');
+  var b=document.getElementById('newsToggle');
+  if(!s||!b)return;
+  if(s.classList.contains('expanded')){
+    s.classList.remove('expanded');
+    b.classList.remove('open');
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg> 展开全部动态';
+    s.scrollTop=0;
+  }else{
+    s.classList.add('expanded');
+    b.classList.add('open');
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg> 收起动态';
+  }
+}
+function togglePatents(){
+  var s=document.getElementById('patentScroll');
+  var b=document.getElementById('patentToggle');
+  if(!s||!b)return;
+  if(s.classList.contains('expanded')){
+    s.classList.remove('expanded');
+    b.classList.remove('open');
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg> 展开全部专利';
+    s.scrollTop=0;
+  }else{
+    s.classList.add('expanded');
+    b.classList.add('open');
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg> 收起专利';
+  }
+}
+function toggleProjects(){
+  var s=document.getElementById('projScroll');
+  var b=document.getElementById('projToggle');
+  if(!s||!b)return;
+  if(s.classList.contains('expanded')){
+    s.classList.remove('expanded');
+    b.classList.remove('open');
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg> 展开全部项目';
+    s.scrollTop=0;
+  }else{
+    s.classList.add('expanded');
+    b.classList.add('open');
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg> 收起项目';
+  }
+}
+function toggleAwards(){
+  var s=document.getElementById('awdScroll');
+  var b=document.getElementById('awdToggle');
+  if(!s||!b)return;
+  if(s.classList.contains('expanded')){
+    s.classList.remove('expanded');
+    b.classList.remove('open');
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg> 展开全部荣誉';
+    s.scrollTop=0;
+  }else{
+    s.classList.add('expanded');
+    b.classList.add('open');
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg> 收起荣誉';
+  }
+}
+</script>
+</body>
+</html>
